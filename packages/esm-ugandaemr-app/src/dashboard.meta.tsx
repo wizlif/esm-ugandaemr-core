@@ -10,10 +10,11 @@ export const hieHomeDashboardMeta = {
   slot: 'hie-home-dashboard-slot',
   title: 'HIE Dashboard',
 };
-export const QueueBoardMeta = {
+export const queueBoardMeta = {
   name: 'queue-board-dashboard',
   slot: 'queue-board-dashboard-slot',
   title: 'Queue Board',
+  path: 'queue-board-dashboard',
 };
 
 // Patient Chart

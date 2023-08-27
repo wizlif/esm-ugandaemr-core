@@ -2,7 +2,7 @@ import { defineConfigSchema, getAsyncLifecycle, getSyncLifecycle, provide } from
 import { configSchema } from './config-schema';
 import { moduleName } from './constants';
 import { createDashboardLink } from './createDashboardLink';
-import { facilityHomeDashboardMeta, hieHomeDashboardMeta } from './dashboard.meta';
+import { facilityHomeDashboardMeta, hieHomeDashboardMeta, queueBoardMeta } from './dashboard.meta';
 import ugandaEmrConfig from './ugandaemr-config';
 import ugandaEmrOverrides from './ugandaemr-configuration-overrrides.json';
 import {
@@ -45,6 +45,23 @@ export const cervicalCancerSummaryExt = getAsyncLifecycle(
     moduleName,
   },
 );
+
+// facility dashboard
+export const queueBoardDashboardLink = getSyncLifecycle(createDashboardLink({ ...queueBoardMeta }), options);
+export const queueBoardDashboardExt = getAsyncLifecycle(
+  () => import('../../esm-patient-queues-app/src/queue-board/queue-board.component'),
+  {
+    featureName: 'queue board dashboard',
+    moduleName,
+  },
+);
+
+// facility dashboard
+export const facilityDashboardLink = getSyncLifecycle(createDashboardLink({ ...facilityHomeDashboardMeta }), options);
+export const facilityDashboardExt = getAsyncLifecycle(() => import('./views/facility/facility-home.component'), {
+  featureName: 'facility dashboard',
+  moduleName,
+});
 
 // clinical views divider
 export const clinicalViewsDivider = getSyncLifecycle(

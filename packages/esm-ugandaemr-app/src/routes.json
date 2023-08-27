@@ -58,7 +58,13 @@
       "meta": {
         "columnSpan": 4
       }
+    },
+    {
+      "component": "queueBoardDashboardLink",
+      "name": "queue-board-dashboard",
+      "slot": "homepage-dashboard-slot",
+      "online": true,
+      "offline": true
     }
   ]
 }
-
